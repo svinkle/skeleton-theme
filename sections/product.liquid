@@ -21,7 +21,7 @@
   {% form 'product', product %}
     {% assign current_variant = product.selected_or_first_available_variant %}
 
-    <select name="id">
+    <select name="id" aria-label="Variant">
       {% for variant in product.variants %}
         <option
           value="{{ variant.id }}"
@@ -34,7 +34,7 @@
       {% endfor %}
     </select>
 
-    <input type="text" name="quantity" min="1" value="1">
+    <input type="text" name="quantity" min="1" value="1" aria-label="Quantity">
 
     <input type="submit" value="Add to cart">
     {{ form | payment_button }}
